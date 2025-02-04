@@ -11,16 +11,18 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/find-tutors" element={<FindTutors />} />
-        <Route path="/tasks" element={<Tasks />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="min-h-screen bg-background">
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/find-tutors" element={<FindTutors />} />
+          <Route path="/tasks" element={<Tasks />} />
+          <Route path="/community" element={<Community />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

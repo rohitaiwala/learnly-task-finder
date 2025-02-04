@@ -4,6 +4,7 @@ import { Bot } from "lucide-react";
 
 export const Navigation = () => {
   const isLoggedIn = false; // This should be replaced with actual auth state management
+  const navigate = useNavigate();
 
   return (
     <nav className="border-b bg-white">
@@ -15,10 +16,18 @@ export const Navigation = () => {
           </Link>
           
           <div className="flex items-center space-x-4">
-            <Link to="/find-tutors">Find Tutors</Link>
-            <Link to="/tasks">Tasks</Link>
-            <Link to="/community">Community</Link>
-            <Link to="/resources">Resources</Link>
+            <Button variant="ghost" asChild>
+              <Link to="/find-tutors">Find Tutors</Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link to="/tasks">Tasks</Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link to="/community">Community</Link>
+            </Button>
+            <Button variant="ghost" asChild>
+              <Link to="/resources">Resources</Link>
+            </Button>
             {isLoggedIn ? (
               <Button variant="outline" asChild>
                 <Link to="/profile">My Profile</Link>
