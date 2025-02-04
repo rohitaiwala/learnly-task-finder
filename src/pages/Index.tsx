@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
-import { Book, Users, Video, Image, FileText, Target } from "lucide-react";
+import { Book, Users, Video, Image, FileText, Target, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -29,12 +29,10 @@ const Index = () => {
               </Button>
             </div>
           </div>
-          <div className="relative">
-            <img
-              src="/lovable-uploads/fea6edd5-bf86-4b0c-9cdc-a4358b9f2639.png"
-              alt="Students learning"
-              className="rounded-lg shadow-xl animate-fade-in"
-            />
+          <div className="relative flex justify-center items-center">
+            <div className="w-64 h-64 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+              <Bot className="w-32 h-32 text-primary" />
+            </div>
           </div>
         </div>
       </section>
