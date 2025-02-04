@@ -1,10 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Bot } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 export const Navigation = () => {
-  const isLoggedIn = false; // This should be replaced with actual auth state management
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
     <nav className="border-b bg-white">
@@ -28,10 +34,15 @@ export const Navigation = () => {
             <Button variant="ghost" asChild>
               <Link to="/resources">Resources</Link>
             </Button>
-            {isLoggedIn ? (
-              <Button variant="outline" asChild>
-                <Link to="/profile">My Profile</Link>
-              </Button>
+            {user?.isLoggedIn ? (
+              <div className="flex items-center gap-4">
+                <Button variant="outline" asChild>
+                  <Link to="/profile">My Profile</Link>
+                </Button>
+                <Button variant="ghost" onClick={handleLogout}>
+                  Logout
+                </Button>
+              </div>
             ) : (
               <>
                 <Button variant="outline" asChild>

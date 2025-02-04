@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 
 const formSchema = z.object({
   username: z.string().min(2, "Please enter your username/email"),
@@ -15,6 +16,8 @@ const formSchema = z.object({
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
+  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,9 +31,10 @@ const Login = () => {
       console.log("Login attempt:", values);
       // Hardcoded credentials for testing
       if (values.username === "AnupamBhai" && values.password === "Pubgstar@#$") {
+        login(values.username);
         toast({
-          title: "Login successful!",
-          description: "Welcome back!",
+          title: "Welcome back!",
+          description: `Successfully logged in as ${values.username}`,
         });
         navigate("/");
       } else {
