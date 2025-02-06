@@ -4,7 +4,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { UseFormReturn } from "react-hook-form";
-import * as z from "zod";
 
 interface PasswordFieldsProps {
   form: UseFormReturn<any>;
@@ -30,13 +29,15 @@ export const PasswordFields = ({
         name="password"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Password</FormLabel>
+            <FormLabel className="text-gray-600">Password</FormLabel>
             <FormControl>
               <div className="relative">
                 <Input
                   type={showPassword ? "text" : "password"}
                   placeholder="Create a password"
-                  className={passwordsMatch && field.value ? "border-green-500" : ""}
+                  className={`rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB] ${
+                    passwordsMatch && field.value ? "border-green-500" : ""
+                  }`}
                   {...field}
                 />
                 <Button
@@ -47,9 +48,9 @@ export const PasswordFields = ({
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
-                    <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    <EyeOff className="h-4 w-4 text-gray-400" />
                   ) : (
-                    <Eye className="h-4 w-4 text-muted-foreground" />
+                    <Eye className="h-4 w-4 text-gray-400" />
                   )}
                 </Button>
               </div>
@@ -64,13 +65,15 @@ export const PasswordFields = ({
         name="confirmPassword"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Confirm Password</FormLabel>
+            <FormLabel className="text-gray-600">Confirm Password</FormLabel>
             <FormControl>
               <div className="relative">
                 <Input
                   type={showConfirmPassword ? "text" : "password"}
                   placeholder="Confirm your password"
-                  className={passwordsMatch && field.value ? "border-green-500" : ""}
+                  className={`rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB] ${
+                    passwordsMatch && field.value ? "border-green-500" : ""
+                  }`}
                   {...field}
                 />
                 <Button
@@ -81,9 +84,9 @@ export const PasswordFields = ({
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
                   {showConfirmPassword ? (
-                    <EyeOff className="h-4 w-4 text-muted-foreground" />
+                    <EyeOff className="h-4 w-4 text-gray-400" />
                   ) : (
-                    <Eye className="h-4 w-4 text-muted-foreground" />
+                    <Eye className="h-4 w-4 text-gray-400" />
                   )}
                 </Button>
               </div>

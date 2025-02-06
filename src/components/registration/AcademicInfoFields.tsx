@@ -16,9 +16,13 @@ export const AcademicInfoFields = ({ form }: AcademicInfoFieldsProps) => {
         name="qualification"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Qualification</FormLabel>
+            <FormLabel className="text-gray-600">Qualification</FormLabel>
             <FormControl>
-              <Input placeholder="Your highest qualification" {...field} />
+              <Input 
+                placeholder="Your highest qualification" 
+                className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                {...field} 
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -30,10 +34,10 @@ export const AcademicInfoFields = ({ form }: AcademicInfoFieldsProps) => {
         name="role"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Role</FormLabel>
+            <FormLabel className="text-gray-600">Role</FormLabel>
             <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
-                <SelectTrigger>
+                <SelectTrigger className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]">
                   <SelectValue placeholder="Select your role" />
                 </SelectTrigger>
               </FormControl>
@@ -52,9 +56,13 @@ export const AcademicInfoFields = ({ form }: AcademicInfoFieldsProps) => {
         name="institutionName"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>School/College Name</FormLabel>
+            <FormLabel className="text-gray-600">School/College Name</FormLabel>
             <FormControl>
-              <Input placeholder="Enter your institution name" {...field} />
+              <Input 
+                placeholder="Enter your institution name" 
+                className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                {...field} 
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -66,9 +74,13 @@ export const AcademicInfoFields = ({ form }: AcademicInfoFieldsProps) => {
         name="preferredSubject"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Preferred Subject</FormLabel>
+            <FormLabel className="text-gray-600">Preferred Subject</FormLabel>
             <FormControl>
-              <Input placeholder="Enter your preferred subject" {...field} />
+              <Input 
+                placeholder="Enter your preferred subject" 
+                className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                {...field} 
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -80,9 +92,13 @@ export const AcademicInfoFields = ({ form }: AcademicInfoFieldsProps) => {
         name="location"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Location</FormLabel>
+            <FormLabel className="text-gray-600">Location</FormLabel>
             <FormControl>
-              <Input placeholder="Enter your location" {...field} />
+              <Input 
+                placeholder="Enter your location" 
+                className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                {...field} 
+              />
             </FormControl>
             <FormMessage />
           </FormItem>

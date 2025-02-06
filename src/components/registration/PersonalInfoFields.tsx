@@ -15,9 +15,13 @@ export const PersonalInfoFields = ({ form }: PersonalInfoFieldsProps) => {
         name="fullName"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Full Name</FormLabel>
+            <FormLabel className="text-gray-600">Full Name</FormLabel>
             <FormControl>
-              <Input placeholder="Enter your full name" {...field} />
+              <Input 
+                placeholder="Enter your full name" 
+                className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                {...field} 
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -30,9 +34,14 @@ export const PersonalInfoFields = ({ form }: PersonalInfoFieldsProps) => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel className="text-gray-600">Email</FormLabel>
               <FormControl>
-                <Input type="email" placeholder="Enter your email" {...field} />
+                <Input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                  {...field} 
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -44,9 +53,14 @@ export const PersonalInfoFields = ({ form }: PersonalInfoFieldsProps) => {
           name="phone"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Phone Number</FormLabel>
+              <FormLabel className="text-gray-600">Phone Number</FormLabel>
               <FormControl>
-                <Input type="tel" placeholder="Enter your phone number" {...field} />
+                <Input 
+                  type="tel" 
+                  placeholder="Enter your phone number" 
+                  className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                  {...field} 
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
