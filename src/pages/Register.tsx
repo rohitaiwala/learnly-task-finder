@@ -1,4 +1,3 @@
-import { Navigation } from "@/components/Navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -39,6 +38,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [passwordsMatch, setPasswordsMatch] = useState(false);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -56,10 +56,22 @@ const Register = () => {
     },
   });
 
+  // Watch password and confirmPassword fields
+  const password = form.watch("password");
+  const confirmPassword = form.watch("confirmPassword");
+
+  // Update passwordsMatch state whenever either password changes
+  React.useEffect(() => {
+    if (password && confirmPassword) {
+      setPasswordsMatch(password === confirmPassword);
+    } else {
+      setPasswordsMatch(false);
+    }
+  }, [password, confirmPassword]);
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       console.log("Form values:", values);
-      // Here you would typically make an API call to register the user
       toast({
         title: "Registration successful!",
         description: "You can now login to your account.",
@@ -220,6 +232,7 @@ const Register = () => {
                           <Input
                             type={showPassword ? "text" : "password"}
                             placeholder="Create a password"
+                            className={passwordsMatch && field.value ? "border-green-500" : ""}
                             {...field}
                           />
                           <Button
@@ -253,6 +266,7 @@ const Register = () => {
                           <Input
                             type={showConfirmPassword ? "text" : "password"}
                             placeholder="Confirm your password"
+                            className={passwordsMatch && field.value ? "border-green-500" : ""}
                             {...field}
                           />
                           <Button
