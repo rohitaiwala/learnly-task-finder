@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import { Navigation } from "@/components/Navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -7,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "@/components/ui/use-toast";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 const formSchema = z.object({
@@ -61,7 +62,7 @@ const Register = () => {
   const confirmPassword = form.watch("confirmPassword");
 
   // Update passwordsMatch state whenever either password changes
-  React.useEffect(() => {
+  useEffect(() => {
     if (password && confirmPassword) {
       setPasswordsMatch(password === confirmPassword);
     } else {
