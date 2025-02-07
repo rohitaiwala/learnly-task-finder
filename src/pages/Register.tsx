@@ -89,27 +89,32 @@ const Register = () => {
   return (
     <div className="min-h-screen bg-[#F1F0FB]">
       <Navigation />
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg p-8 space-y-6">
+      <div className="container mx-auto px-4 py-4 md:py-8">
+        <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-lg p-4 md:p-8 space-y-4 md:space-y-6">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-[#1EAEDB]">Create Account</h1>
-            <p className="text-gray-500 mt-2">Join our learning community today</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-[#1EAEDB]">Create Account</h1>
+            <p className="text-gray-500 mt-2 text-sm md:text-base">Join our learning community today</p>
           </div>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              <PersonalInfoFields form={form} />
-              <AcademicInfoFields form={form} />
-              <PasswordFields
-                form={form}
-                showPassword={showPassword}
-                showConfirmPassword={showConfirmPassword}
-                passwordsMatch={passwordsMatch}
-                setShowPassword={setShowPassword}
-                setShowConfirmPassword={setShowConfirmPassword}
-              />
+              <div className="space-y-4">
+                <PersonalInfoFields form={form} />
+                <AcademicInfoFields form={form} />
+                <PasswordFields
+                  form={form}
+                  showPassword={showPassword}
+                  showConfirmPassword={showConfirmPassword}
+                  passwordsMatch={passwordsMatch}
+                  setShowPassword={setShowPassword}
+                  setShowConfirmPassword={setShowConfirmPassword}
+                />
+              </div>
 
-              <Button type="submit" className="w-full bg-[#1EAEDB] hover:bg-[#33C3F0] text-white rounded-full py-3">
+              <Button 
+                type="submit" 
+                className="w-full bg-[#1EAEDB] hover:bg-[#33C3F0] text-white rounded-full py-2.5 md:py-3"
+              >
                 Register
               </Button>
             </form>
