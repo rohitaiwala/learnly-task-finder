@@ -10,7 +10,7 @@ import { toast } from "@/components/ui/use-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
-import { Eye, EyeOff, Github, Twitter, Facebook } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
 
 const formSchema = z.object({
   username: z.string().min(2, "Please enter your username/email"),
@@ -61,39 +61,6 @@ const Login = () => {
           <div className="text-center space-y-2">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Welcome Back</h1>
             <p className="text-gray-500">Login to your account</p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-4">
-            <Button 
-              variant="outline" 
-              className="w-full flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-              onClick={() => toast({ title: "Social login", description: "Github login not implemented yet" })}
-            >
-              <Github className="h-4 w-4" />
-            </Button>
-            <Button 
-              variant="outline" 
-              className="w-full flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-              onClick={() => toast({ title: "Social login", description: "Facebook login not implemented yet" })}
-            >
-              <Facebook className="h-4 w-4" />
-            </Button>
-            <Button 
-              variant="outline" 
-              className="w-full flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors"
-              onClick={() => toast({ title: "Social login", description: "Twitter login not implemented yet" })}
-            >
-              <Twitter className="h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-200"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
-            </div>
           </div>
 
           <Form {...form}>
