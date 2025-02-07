@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { PersonalInfoFields } from "@/components/registration/PersonalInfoFields";
 import { AcademicInfoFields } from "@/components/registration/AcademicInfoFields";
 import { PasswordFields } from "@/components/registration/PasswordFields";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
@@ -41,6 +42,7 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -70,6 +72,15 @@ const Register = () => {
   }, [password, confirmPassword]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    if (!captchaValue) {
+      toast({
+        title: "Error",
+        description: "Please complete the reCAPTCHA verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       console.log("Form values:", values);
       toast({
@@ -108,6 +119,13 @@ const Register = () => {
                   passwordsMatch={passwordsMatch}
                   setShowPassword={setShowPassword}
                   setShowConfirmPassword={setShowConfirmPassword}
+                />
+              </div>
+
+              <div className="flex justify-center my-4">
+                <ReCAPTCHA
+                  sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                  onChange={(value) => setCaptchaValue(value)}
                 />
               </div>
 

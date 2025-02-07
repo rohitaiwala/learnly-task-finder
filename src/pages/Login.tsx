@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const formSchema = z.object({
   username: z.string().min(2, "Please enter your username/email"),
@@ -21,6 +22,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -31,9 +33,17 @@ const Login = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    if (!captchaValue) {
+      toast({
+        title: "Error",
+        description: "Please complete the reCAPTCHA verification.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     try {
       console.log("Login attempt:", values);
-      // Hardcoded credentials for testing
       if (values.username === "AnupamBhai" && values.password === "Pubgstar@#$") {
         login(values.username);
         toast({
@@ -116,6 +126,13 @@ const Login = () => {
                   </FormItem>
                 )}
               />
+
+              <div className="flex justify-center my-4">
+                <ReCAPTCHA
+                  sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                  onChange={(value) => setCaptchaValue(value)}
+                />
+              </div>
 
               <Button 
                 type="submit" 

@@ -1,7 +1,7 @@
 
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
-import { Bot, Menu, X } from "lucide-react";
+import { Bot, Menu, X, Home } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export const Navigation = () => {
 
           {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 text-gray-600"
+            className="lg:hidden p-2 text-gray-600 hover:text-[#1EAEDB] transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -43,33 +43,74 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="ghost" asChild>
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
+              <Link to="/">
+                <Home className="h-5 w-5 mr-2" />
+                Home
+              </Link>
+            </Button>
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/find-tutors">Find Tutors</Link>
             </Button>
-            <Button variant="ghost" asChild>
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/tasks">Tasks</Link>
             </Button>
-            <Button variant="ghost" asChild>
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/community">Community</Link>
             </Button>
-            <Button variant="ghost" asChild>
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/resources">Resources</Link>
             </Button>
             {user?.isLoggedIn ? (
               <div className="flex items-center gap-4">
-                <Button variant="outline" asChild>
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                >
                   <Link to="/profile">My Profile</Link>
                 </Button>
-                <Button variant="ghost" onClick={handleLogout}>
+                <Button 
+                  variant="ghost" 
+                  onClick={handleLogout}
+                  className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                >
                   Logout
                 </Button>
               </div>
             ) : (
               <>
-                <Button variant="outline" asChild>
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                >
                   <Link to="/login">Login</Link>
                 </Button>
-                <Button asChild>
+                <Button 
+                  asChild 
+                  className="bg-[#1EAEDB] hover:bg-[#33C3F0] text-white transition-colors"
+                >
                   <Link to="/register">Register</Link>
                 </Button>
               </>
@@ -80,33 +121,74 @@ export const Navigation = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 space-y-2">
-            <Button variant="ghost" asChild className="w-full justify-start">
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
+              <Link to="/">
+                <Home className="h-5 w-5 mr-2" />
+                Home
+              </Link>
+            </Button>
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/find-tutors">Find Tutors</Link>
             </Button>
-            <Button variant="ghost" asChild className="w-full justify-start">
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/tasks">Tasks</Link>
             </Button>
-            <Button variant="ghost" asChild className="w-full justify-start">
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/community">Community</Link>
             </Button>
-            <Button variant="ghost" asChild className="w-full justify-start">
+            <Button 
+              variant="ghost" 
+              asChild 
+              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+            >
               <Link to="/resources">Resources</Link>
             </Button>
             {user?.isLoggedIn ? (
               <>
-                <Button variant="outline" asChild className="w-full justify-start">
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                >
                   <Link to="/profile">My Profile</Link>
                 </Button>
-                <Button variant="ghost" onClick={handleLogout} className="w-full justify-start">
+                <Button 
+                  variant="ghost" 
+                  onClick={handleLogout} 
+                  className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                >
                   Logout
                 </Button>
               </>
             ) : (
               <>
-                <Button variant="outline" asChild className="w-full justify-start">
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                >
                   <Link to="/login">Login</Link>
                 </Button>
-                <Button asChild className="w-full justify-start">
+                <Button 
+                  asChild 
+                  className="w-full justify-start bg-[#1EAEDB] hover:bg-[#33C3F0] text-white transition-colors"
+                >
                   <Link to="/register">Register</Link>
                 </Button>
               </>
