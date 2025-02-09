@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Book, Users, Video, Image, FileText, Target, Bot } from "lucide-react";
@@ -21,16 +22,16 @@ const Index = () => {
               share knowledge, and achieve your academic goals.
             </p>
             <div className="flex gap-4">
-              <Button asChild size="lg">
+              <Button asChild size="lg" className="button-3d">
                 <Link to="/register">Get Started</Link>
               </Button>
-              <Button variant="outline" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="button-3d">
                 <Link to="/find-tutors">Find a Tutor</Link>
               </Button>
             </div>
           </div>
           <div className="relative flex justify-center items-center">
-            <div className="w-64 h-64 bg-primary/10 rounded-full flex items-center justify-center animate-pulse">
+            <div className="w-64 h-64 bg-primary/10 rounded-full flex items-center justify-center animate-pulse card-3d">
               <Bot className="w-32 h-32 text-primary" />
             </div>
           </div>
@@ -92,7 +93,7 @@ const Index = () => {
 };
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="bg-background p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+  <div className="bg-background p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow card-3d">
     <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
       {icon}
     </div>
@@ -102,7 +103,7 @@ const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; titl
 );
 
 const TaskCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="bg-muted/30 p-6 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
+  <div className="bg-muted/30 p-6 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer card-3d">
     <div className="flex items-center gap-3 mb-4">
       {icon}
       <h3 className="text-xl font-semibold">{title}</h3>

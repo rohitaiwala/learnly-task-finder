@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Bot, Menu, X, Home } from "lucide-react";
@@ -20,17 +19,16 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="border-b bg-white">
+    <nav className="border-b bg-card shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
-          <Link to="/" className="flex items-center gap-2">
-            <Bot className="h-6 w-6 text-[#1EAEDB]" />
-            <span className="text-xl font-bold text-[#1EAEDB]">StudentConnect</span>
+          <Link to="/" className="flex items-center gap-2 card-3d p-2 rounded-lg">
+            <Bot className="h-6 w-6 text-primary" />
+            <span className="text-xl font-bold text-primary">StudentConnect</span>
           </Link>
 
-          {/* Mobile menu button */}
           <button
-            className="lg:hidden p-2 text-gray-600 hover:text-[#1EAEDB] transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors button-3d rounded-lg"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -41,12 +39,11 @@ export const Navigation = () => {
             )}
           </button>
 
-          {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button 
               variant="ghost" 
               asChild 
-              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              className="button-3d"
             >
               <Link to="/">
                 <Home className="h-5 w-5 mr-2" />
@@ -118,13 +115,12 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 space-y-2">
             <Button 
               variant="ghost" 
               asChild 
-              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              className="w-full justify-start button-3d"
             >
               <Link to="/">
                 <Home className="h-5 w-5 mr-2" />
