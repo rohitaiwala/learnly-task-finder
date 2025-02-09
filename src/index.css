@@ -44,6 +44,7 @@
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
   }
 }
 
@@ -51,15 +52,21 @@
   @apply rounded-3xl shadow-lg transition-all duration-300 hover:shadow-xl;
   transform-style: preserve-3d;
   perspective: 1000px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .card-3d:hover {
-  transform: translateY(-5px) rotateX(5deg);
+  transform: translateY(-10px) rotateX(10deg) rotateY(5deg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
 .button-3d {
   @apply relative overflow-hidden transition-all duration-300 bg-primary text-primary-foreground;
   transform-style: preserve-3d;
+  perspective: 1000px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .button-3d::before {
@@ -71,7 +78,51 @@
   @apply opacity-100;
 }
 
-.button-3d:active {
-  transform: translateY(2px);
+.button-3d:hover {
+  transform: translateY(-3px) rotateX(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+.button-3d:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.feature-card-3d {
+  @apply bg-background p-6 rounded-lg shadow-sm transition-all duration-300;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.feature-card-3d:hover {
+  transform: translateY(-5px) rotateX(10deg) rotateY(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.icon-3d {
+  transform: translateZ(20px);
+  transition: all 0.3s ease;
+}
+
+.feature-card-3d:hover .icon-3d {
+  transform: translateZ(30px) scale(1.1);
+}

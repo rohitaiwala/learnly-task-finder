@@ -13,11 +13,13 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight transform transition-all duration-300 hover:scale-105">
               Connect, Learn &{" "}
-              <span className="text-primary">Grow Together</span>
+              <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                Grow Together
+              </span>
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground transform hover:translate-x-2 transition-transform duration-300">
               Join our community of students and tutors. Get help with your studies,
               share knowledge, and achieve your academic goals.
             </p>
@@ -31,17 +33,19 @@ const Index = () => {
             </div>
           </div>
           <div className="relative flex justify-center items-center">
-            <div className="w-64 h-64 bg-primary/10 rounded-full flex items-center justify-center animate-pulse card-3d">
-              <Bot className="w-32 h-32 text-primary" />
+            <div className="w-64 h-64 bg-primary/10 rounded-full flex items-center justify-center floating card-3d">
+              <Bot className="w-32 h-32 text-primary transform transition-transform duration-300 hover:scale-110" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="bg-muted/50 py-16">
+      <section className="bg-muted/50 py-16 transform-gpu">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Features</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 transform transition-all duration-300 hover:scale-105">
+            Our Features
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard
               icon={<Book className="h-8 w-8" />}
@@ -69,7 +73,9 @@ const Index = () => {
 
       {/* Task Types Section */}
       <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Available Tasks</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 transform transition-all duration-300 hover:scale-105">
+          Available Tasks
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <TaskCard
             icon={<Video className="h-6 w-6" />}
@@ -93,20 +99,22 @@ const Index = () => {
 };
 
 const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="bg-background p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow card-3d">
-    <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
+  <div className="feature-card-3d">
+    <div className="bg-primary/10 p-3 rounded-full w-fit mb-4 icon-3d">
       {icon}
     </div>
-    <h3 className="text-xl font-semibold mb-2">{title}</h3>
+    <h3 className="text-xl font-semibold mb-2 transform transition-all duration-300 hover:translate-x-2">{title}</h3>
     <p className="text-muted-foreground">{description}</p>
   </div>
 );
 
 const TaskCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
-  <div className="bg-muted/30 p-6 rounded-lg hover:bg-muted/50 transition-colors cursor-pointer card-3d">
+  <div className="feature-card-3d cursor-pointer">
     <div className="flex items-center gap-3 mb-4">
-      {icon}
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <div className="icon-3d">
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold transform transition-all duration-300 hover:translate-x-2">{title}</h3>
     </div>
     <p className="text-muted-foreground">{description}</p>
   </div>
