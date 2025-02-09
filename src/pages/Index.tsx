@@ -1,6 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 import { Book, Users, Video, Image, FileText, Target, Bot } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -94,6 +94,8 @@ const Index = () => {
           />
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
