@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./ui/button";
 import { Bot, Menu, X, Home } from "lucide-react";
@@ -44,65 +45,65 @@ export const Navigation = () => {
             )}
           </button>
 
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
             <Link 
               to="/"
-              className="button-3d px-4 py-2 rounded-lg flex items-center gap-2 text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="button-3d px-3 py-2 rounded-lg flex items-center gap-1 text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
             >
-              <Home className="h-5 w-5" />
+              <Home className="h-4 w-4" />
               Home
             </Link>
             <Link 
               to="/find-tutors"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
             >
               Find Tutors
             </Link>
             <Link 
               to="/tasks"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
             >
               Tasks
             </Link>
             <Link 
               to="/community"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
             >
               Community
             </Link>
             <Link 
               to="/resources"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
             >
               Resources
             </Link>
             
             {user?.isLoggedIn ? (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <Link 
                   to="/profile"
-                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
+                  className="button-3d px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300 text-sm"
                 >
-                  My Profile
+                  Profile
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+                  className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
                 <Link 
                   to="/login"
-                  className="button-3d px-4 py-2 rounded-lg border border-primary text-primary-foreground hover:bg-primary/10 transition-colors duration-300"
+                  className="button-3d px-3 py-2 rounded-lg border border-primary text-primary-foreground hover:bg-primary/10 transition-colors duration-300 text-sm"
                 >
                   Login
                 </Link>
                 <Link 
                   to="/register"
-                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
+                  className="button-3d px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300 text-sm"
                 >
                   Register
                 </Link>
