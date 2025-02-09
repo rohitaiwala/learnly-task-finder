@@ -19,16 +19,21 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="border-b bg-card shadow-md">
+    <nav className="border-b bg-card/80 backdrop-blur-md shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
-          <Link to="/" className="flex items-center gap-2 card-3d p-2 rounded-lg">
+          <Link 
+            to="/" 
+            className="flex items-center gap-2 card-3d p-2 rounded-lg transform transition-all duration-300 hover:scale-105"
+          >
             <Bot className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold text-primary">StudentConnect</span>
+            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              StudentConnect
+            </span>
           </Link>
 
           <button
-            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors button-3d rounded-lg"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-colors button-3d rounded-lg"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -39,155 +44,136 @@ export const Navigation = () => {
             )}
           </button>
 
-          <div className="hidden lg:flex items-center space-x-4">
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="button-3d"
+          <div className="hidden md:flex items-center space-x-6">
+            <Link 
+              to="/"
+              className="button-3d px-4 py-2 rounded-lg flex items-center gap-2 text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/">
-                <Home className="h-5 w-5 mr-2" />
-                Home
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              <Home className="h-5 w-5" />
+              Home
+            </Link>
+            <Link 
+              to="/find-tutors"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/find-tutors">Find Tutors</Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              Find Tutors
+            </Link>
+            <Link 
+              to="/tasks"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/tasks">Tasks</Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              Tasks
+            </Link>
+            <Link 
+              to="/community"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/community">Community</Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              Community
+            </Link>
+            <Link 
+              to="/resources"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/resources">Resources</Link>
-            </Button>
+              Resources
+            </Link>
+            
             {user?.isLoggedIn ? (
               <div className="flex items-center gap-4">
-                <Button 
-                  variant="outline" 
-                  asChild 
-                  className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                <Link 
+                  to="/profile"
+                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
                 >
-                  <Link to="/profile">My Profile</Link>
-                </Button>
-                <Button 
-                  variant="ghost" 
+                  My Profile
+                </Link>
+                <button
                   onClick={handleLogout}
-                  className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                  className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
                 >
                   Logout
-                </Button>
+                </button>
               </div>
             ) : (
-              <>
-                <Button 
-                  variant="outline" 
-                  asChild 
-                  className="hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              <div className="flex items-center gap-4">
+                <Link 
+                  to="/login"
+                  className="button-3d px-4 py-2 rounded-lg border border-primary text-primary-foreground hover:bg-primary/10 transition-colors duration-300"
                 >
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button 
-                  asChild 
-                  className="bg-[#1EAEDB] hover:bg-[#33C3F0] text-white transition-colors"
+                  Login
+                </Link>
+                <Link 
+                  to="/register"
+                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
                 >
-                  <Link to="/register">Register</Link>
-                </Button>
-              </>
+                  Register
+                </Link>
+              </div>
             )}
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className="lg:hidden py-4 space-y-2">
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="w-full justify-start button-3d"
+          <div className="md:hidden py-4 space-y-2">
+            <Link 
+              to="/"
+              className="button-3d px-4 py-2 rounded-lg flex items-center gap-2 text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/">
-                <Home className="h-5 w-5 mr-2" />
-                Home
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              <Home className="h-5 w-5" />
+              Home
+            </Link>
+            <Link 
+              to="/find-tutors"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/find-tutors">Find Tutors</Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              Find Tutors
+            </Link>
+            <Link 
+              to="/tasks"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/tasks">Tasks</Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              Tasks
+            </Link>
+            <Link 
+              to="/community"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/community">Community</Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              asChild 
-              className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              Community
+            </Link>
+            <Link 
+              to="/resources"
+              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
             >
-              <Link to="/resources">Resources</Link>
-            </Button>
+              Resources
+            </Link>
             {user?.isLoggedIn ? (
-              <>
-                <Button 
-                  variant="outline" 
-                  asChild 
-                  className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              <div className="flex items-center gap-4">
+                <Link 
+                  to="/profile"
+                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
                 >
-                  <Link to="/profile">My Profile</Link>
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  onClick={handleLogout} 
-                  className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+                  My Profile
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
                 >
                   Logout
-                </Button>
-              </>
+                </button>
+              </div>
             ) : (
-              <>
-                <Button 
-                  variant="outline" 
-                  asChild 
-                  className="w-full justify-start hover:border-[#1EAEDB] hover:text-[#1EAEDB] transition-colors"
+              <div className="flex items-center gap-4">
+                <Link 
+                  to="/login"
+                  className="button-3d px-4 py-2 rounded-lg border border-primary text-primary-foreground hover:bg-primary/10 transition-colors duration-300"
                 >
-                  <Link to="/login">Login</Link>
-                </Button>
-                <Button 
-                  asChild 
-                  className="w-full justify-start bg-[#1EAEDB] hover:bg-[#33C3F0] text-white transition-colors"
+                  Login
+                </Link>
+                <Link 
+                  to="/register"
+                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
                 >
-                  <Link to="/register">Register</Link>
-                </Button>
-              </>
+                  Register
+                </Link>
+              </div>
             )}
           </div>
         )}
