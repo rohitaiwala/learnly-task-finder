@@ -1,4 +1,3 @@
-
 import { Github, Linkedin, Mail, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -17,7 +16,7 @@ export const Footer = () => {
               Empowering students through collaborative learning and mentorship. Join our community of learners and educators today.
             </p>
             <div className="flex gap-4">
-              <Button size="sm" className="rounded-full">
+              <Button size="sm" className="rounded-full" asChild>
                 <Link to="/register" className="flex items-center gap-2">
                   Join Now <ChevronRight className="h-4 w-4" />
                 </Link>
