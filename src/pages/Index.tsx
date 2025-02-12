@@ -140,6 +140,18 @@ const Index = () => {
   );
 };
 
+const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
+  <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 feature-card-3d">
+    <div className="flex flex-col items-center text-center space-y-4">
+      <div className="icon-3d bg-primary/10 p-4 rounded-full">
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold transform transition-all duration-300 hover:scale-105">{title}</h3>
+      <p className="text-muted-foreground">{description}</p>
+    </div>
+  </div>
+);
+
 const TaskCard = ({ icon, title, description, image }: { icon: React.ReactNode; title: string; description: string; image: string }) => (
   <div className="group feature-card-3d cursor-pointer overflow-hidden">
     <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
