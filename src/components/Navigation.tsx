@@ -20,21 +20,21 @@ export const Navigation = () => {
   };
 
   return (
-    <nav className="border-b bg-card/80 backdrop-blur-md shadow-lg">
+    <nav className="border-b bg-background/95 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-3">
           <Link 
             to="/" 
-            className="flex items-center gap-2 card-3d p-2 rounded-lg transform transition-all duration-300 hover:scale-105"
+            className="flex items-center gap-2 rounded-full bg-white/90 p-2 shadow-sm transition-all duration-300 hover:shadow-md"
           >
             <Bot className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-primary">
               StudentConnect
             </span>
           </Link>
 
           <button
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors button-3d rounded-lg"
+            className="md:hidden p-2 rounded-full bg-white/90 text-primary hover:bg-primary/10 transition-colors"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -45,65 +45,67 @@ export const Navigation = () => {
             )}
           </button>
 
-          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
-            <Link 
-              to="/"
-              className="button-3d px-3 py-2 rounded-lg flex items-center gap-1 text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
-            >
-              <Home className="h-4 w-4" />
-              Home
-            </Link>
-            <Link 
-              to="/find-tutors"
-              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
-            >
-              Find Tutors
-            </Link>
-            <Link 
-              to="/tasks"
-              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
-            >
-              Tasks
-            </Link>
-            <Link 
-              to="/community"
-              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
-            >
-              Community
-            </Link>
-            <Link 
-              to="/resources"
-              className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
-            >
-              Resources
-            </Link>
+          <div className="hidden md:flex items-center gap-2">
+            <div className="bg-primary/10 rounded-full p-1 flex items-center gap-1">
+              <Link 
+                to="/"
+                className="px-4 py-2 rounded-full flex items-center gap-2 text-primary hover:bg-white/90 transition-all duration-300"
+              >
+                <Home className="h-4 w-4" />
+                Home
+              </Link>
+              <Link 
+                to="/find-tutors"
+                className="px-4 py-2 rounded-full text-primary hover:bg-white/90 transition-all duration-300"
+              >
+                Find Tutors
+              </Link>
+              <Link 
+                to="/tasks"
+                className="px-4 py-2 rounded-full text-primary hover:bg-white/90 transition-all duration-300"
+              >
+                Tasks
+              </Link>
+              <Link 
+                to="/community"
+                className="px-4 py-2 rounded-full text-primary hover:bg-white/90 transition-all duration-300"
+              >
+                Community
+              </Link>
+              <Link 
+                to="/resources"
+                className="px-4 py-2 rounded-full text-primary hover:bg-white/90 transition-all duration-300"
+              >
+                Resources
+              </Link>
+            </div>
             
             {user?.isLoggedIn ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 ml-2">
                 <Link 
                   to="/profile"
-                  className="button-3d px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300 text-sm"
+                  className="px-4 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300"
                 >
                   Profile
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="button-3d px-3 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300 text-sm"
+                  className="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-white/90 transition-all duration-300"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 ml-2">
                 <Link 
                   to="/login"
-                  className="button-3d px-3 py-2 rounded-lg border border-primary text-primary-foreground hover:bg-primary/10 transition-colors duration-300 text-sm"
+                  className="px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-white/90 transition-all duration-300"
                 >
                   Login
                 </Link>
                 <Link 
                   to="/register"
-                  className="button-3d px-3 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300 text-sm"
+                  className="px-4 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300"
                 >
                   Register
                 </Link>
@@ -116,61 +118,61 @@ export const Navigation = () => {
           <div className="md:hidden py-4 space-y-2">
             <Link 
               to="/"
-              className="button-3d px-4 py-2 rounded-lg flex items-center gap-2 text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300"
             >
-              <Home className="h-5 w-5" />
+              <Home className="h-5 w-5 inline-block mr-2" />
               Home
             </Link>
             <Link 
               to="/find-tutors"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300"
             >
               Find Tutors
             </Link>
             <Link 
               to="/tasks"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300"
             >
               Tasks
             </Link>
             <Link 
               to="/community"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300"
             >
               Community
             </Link>
             <Link 
               to="/resources"
-              className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+              className="block px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300"
             >
               Resources
             </Link>
             {user?.isLoggedIn ? (
-              <div className="flex items-center gap-4">
+              <div className="space-y-2">
                 <Link 
                   to="/profile"
-                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
+                  className="block px-4 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors duration-300"
                 >
                   My Profile
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="button-3d px-4 py-2 rounded-lg text-primary-foreground hover:text-primary transition-colors duration-300"
+                  className="w-full text-left px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-4">
+              <div className="space-y-2">
                 <Link 
                   to="/login"
-                  className="button-3d px-4 py-2 rounded-lg border border-primary text-primary-foreground hover:bg-primary/10 transition-colors duration-300"
+                  className="block px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-white/90 transition-colors duration-300"
                 >
                   Login
                 </Link>
                 <Link 
                   to="/register"
-                  className="button-3d px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
+                  className="block px-4 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors duration-300"
                 >
                   Register
                 </Link>
