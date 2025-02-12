@@ -1,7 +1,8 @@
+
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Book, Users, Video, Image, FileText, Target, Bot, Code, PenTool, Library, ChevronRight } from "lucide-react";
+import { Book, Users, Video, Image, FileText, Target, Code, PenTool, Library, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Index = () => {
@@ -34,7 +35,7 @@ const Index = () => {
           </div>
           <div className="relative flex justify-center items-center">
             <div className="w-40 h-40 bg-primary/10 rounded-full flex items-center justify-center floating card-3d">
-              <Bot className="w-20 h-20 text-primary transform transition-transform duration-300 hover:scale-110" />
+              {/* Bot icon removed from here */}
             </div>
           </div>
         </div>
