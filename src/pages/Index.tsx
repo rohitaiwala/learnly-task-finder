@@ -41,7 +41,7 @@ const Index = () => {
 
       {/* Features Section */}
       <section className="bg-muted/50 py-16 transform-gpu">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-[18px] py-[5px] bg-rose-400 hover:bg-rose-300">
           <h2 className="text-3xl font-bold text-center mb-12 transform transition-all duration-300 hover:scale-105">
             Our Features
           </h2>
