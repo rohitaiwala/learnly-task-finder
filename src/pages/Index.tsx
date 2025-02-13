@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Book, Users, Video, Image, FileText, Target, Code, PenTool, Library, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FloatingBot } from "@/components/FloatingBot";
 
 const Index = () => {
   return (
@@ -35,7 +36,7 @@ const Index = () => {
           </div>
           <div className="relative flex justify-center items-center">
             <div className="w-40 h-40 bg-primary/10 rounded-full flex items-center justify-center floating card-3d">
-              {/* Bot icon removed from here */}
+              {/* Hero section bot removed */}
             </div>
           </div>
         </div>
@@ -136,6 +137,7 @@ const Index = () => {
       </section>
 
       <Footer />
+      <FloatingBot />
     </div>
   );
 };
