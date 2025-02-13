@@ -9,7 +9,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
+      <section className="container mx-auto px-4 py-16 md:py-24 bg-rose-400 hover:bg-rose-300">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight transform transition-all duration-300 hover:scale-105">
@@ -40,7 +40,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="bg-muted/50 py-16 transform-gpu">
+      <section className="py-16 transform-gpu bg-rose-400 hover:bg-rose-300">
         <div className="container mx-auto px-[18px] py-[5px] bg-rose-400 hover:bg-rose-300">
           <h2 className="text-3xl font-bold text-center mb-12 transform transition-all duration-300 hover:scale-105">
             Our Features
