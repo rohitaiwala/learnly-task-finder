@@ -69,7 +69,7 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {isMenuOpen && <div className="md:hidden py-4 space-y-2">
+        {isMenuOpen && <div className="md:hidden py-4 space-y-2 bg-teal-950 hover:bg-teal-800 rounded-2xl px-[15px]">
             <Link to="/" className="block px-4 py-2 rounded-full text-primary hover:bg-primary/10 transition-colors duration-300">
               <Home className="h-5 w-5 inline-block mr-2" />
               Home
