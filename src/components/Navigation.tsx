@@ -19,7 +19,7 @@ export const Navigation = () => {
   };
   return <nav className="border-b bg-background/95 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-3">
+        <div className="flex items-center justify-between py-[5px] px-0 bg-green-950 hover:bg-green-800">
           <Link to="/" className="flex items-center gap-2 rounded-full bg-white/90 p-2 shadow-sm transition-all duration-300 hover:shadow-md">
             <Bot className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold text-primary">
