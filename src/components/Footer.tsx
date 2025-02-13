@@ -1,11 +1,9 @@
 import { Github, Linkedin, Mail, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
-
 export const Footer = () => {
-  return (
-    <footer className="bg-card/80 backdrop-blur-md border-t mt-20">
-      <div className="container mx-auto px-4 py-12">
+  return <footer className="bg-card/80 backdrop-blur-md border-t mt-20">
+      <div className="container mx-auto px-4 py-12 bg-cyan-200 hover:bg-cyan-100 rounded-sm">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* About Section */}
           <div className="space-y-4 md:col-span-2">
@@ -50,28 +48,15 @@ export const Footer = () => {
               Have questions? Reach out to us:
             </p>
             <div className="flex flex-col gap-2">
-              <a 
-                href="mailto:support@studentconnect.com"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href="mailto:support@studentconnect.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" />
                 support@studentconnect.com
               </a>
               <div className="flex gap-4 mt-2">
-                <a
-                  href="https://github.com/studentconnect"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <a href="https://github.com/studentconnect" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   <Github className="h-5 w-5" />
                 </a>
-                <a
-                  href="https://linkedin.com/company/studentconnect"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
+                <a href="https://linkedin.com/company/studentconnect" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                   <Linkedin className="h-5 w-5" />
                 </a>
               </div>
@@ -84,6 +69,5 @@ export const Footer = () => {
           <p>© 2024 StudentConnect. All rights reserved.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
