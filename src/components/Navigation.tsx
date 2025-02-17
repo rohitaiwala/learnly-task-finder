@@ -22,7 +22,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between px-0 py-0 bg-inherit">
           <Link to="/" className="flex items-center gap-2 rounded-full bg-white/90 p-2 shadow-sm transition-all duration-300 hover:shadow-md">
             <Bot className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold text-primary">
+            <span className="text-xl font-bold text-red-950">
               StudentConnect
             </span>
           </Link>
