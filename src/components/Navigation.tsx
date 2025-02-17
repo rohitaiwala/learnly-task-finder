@@ -32,7 +32,7 @@ export const Navigation = () => {
           </button>
 
           <div className="hidden md:flex items-center gap-2">
-            <div className="p-1 flex items-center gap-1 bg-orange-950 hover:bg-orange-800 rounded-3xl py-[4px] px-[15px]">
+            <div className="p-1 flex items-center gap-1 rounded-3xl py-[4px] px-[15px] bg-gray-50">
               <Link to="/" className="px-4 py-2 rounded-full flex items-center gap-2 text-primary hover:bg-white/90 transition-all duration-300">
                 <Home className="h-4 w-4" />
                 Home
