@@ -18,7 +18,7 @@ export const Navigation = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return <nav className="border-b bg-background/95 backdrop-blur-md shadow-sm">
-      <div className="container mx-auto bg-teal-950 hover:bg-teal-800 py-0 my-0 px-[15px]">
+      <div className="container mx-auto bg-teal-950 hover:bg-teal-800 my-0 px-[17px] py-[15px]">
         <div className="flex items-center justify-between px-0 py-0 bg-inherit">
           <Link to="/" className="flex items-center gap-2 rounded-full bg-white/90 p-2 shadow-sm transition-all duration-300 hover:shadow-md">
             <Bot className="h-6 w-6 text-primary" />
