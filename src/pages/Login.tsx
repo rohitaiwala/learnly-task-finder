@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -42,9 +41,12 @@ const Login = () => {
       return;
     }
 
+    const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
+    const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
+
     try {
       console.log("Login attempt:", values);
-      if (values.username === "AnupamBhai" && values.password === "Pubgstar@#$") {
+      if (values.username === adminUsername && values.password === adminPassword) {
         login(values.username);
         toast({
           title: "Welcome back!",
@@ -64,13 +66,13 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#F1F0FB]">
+    <div className="min-h-screen bg-[#F1F0FB] dark:bg-[#1A202C]">
       <Navigation />
       <div className="container mx-auto px-4 py-8 md:py-16">
-        <div className="max-w-md mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8 space-y-6 animate-fade-in">
+        <div className="max-w-md mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 md:p-8 space-y-6 animate-fade-in">
           <div className="text-center space-y-2">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Welcome Back</h1>
-            <p className="text-gray-500">Login to your account</p>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100">Welcome Back</h1>
+            <p className="text-gray-500 dark:text-gray-400">Login to your account</p>
           </div>
 
           <Form {...form}>
@@ -80,11 +82,11 @@ const Login = () => {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-gray-700">Username/Email</FormLabel>
+                    <FormLabel className="text-gray-700 dark:text-gray-300">Username/Email</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="Enter your username or email" 
-                        className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
+                        className="rounded-xl border-gray-200 dark:border-gray-700 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]" 
                         {...field} 
                       />
                     </FormControl>
@@ -98,13 +100,13 @@ const Login = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-gray-700">Password</FormLabel>
+                    <FormLabel className="text-gray-700 dark:text-gray-300">Password</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input 
                           type={showPassword ? "text" : "password"} 
                           placeholder="Enter your password" 
-                          className="rounded-xl border-gray-200 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]"
+                          className="rounded-xl border-gray-200 dark:border-gray-700 focus:border-[#1EAEDB] focus:ring-[#1EAEDB]"
                           {...field} 
                         />
                         <Button
@@ -115,9 +117,9 @@ const Login = () => {
                           onClick={() => setShowPassword(!showPassword)}
                         >
                           {showPassword ? (
-                            <EyeOff className="h-4 w-4 text-gray-400" />
+                            <EyeOff className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                           ) : (
-                            <Eye className="h-4 w-4 text-gray-400" />
+                            <Eye className="h-4 w-4 text-gray-400 dark:text-gray-500" />
                           )}
                         </Button>
                       </div>
@@ -130,6 +132,7 @@ const Login = () => {
               <div className="flex justify-center my-4">
                 <ReCAPTCHA
                   sitekey="YOUR_RECAPTCHA_SITE_KEY"
+                  theme="dark"
                   onChange={(value) => setCaptchaValue(value)}
                 />
               </div>
@@ -144,7 +147,7 @@ const Login = () => {
           </Form>
 
           <div className="text-center text-sm">
-            <span className="text-gray-500">Don't have an account? </span>
+            <span className="text-gray-500 dark:text-gray-400">Don't have an account? </span>
             <Link to="/register" className="text-[#1EAEDB] hover:underline font-medium">
               Register here
             </Link>
