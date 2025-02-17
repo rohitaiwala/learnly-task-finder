@@ -97,7 +97,7 @@ const FeatureCard = ({
   icon: React.ReactNode;
   title: string;
   description: string;
-}) => <div className="bg-card p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 feature-card-3d">
+}) => <div className="p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 feature-card-3d bg-sky-300 hover:bg-sky-200 rounded-sm">
     <div className="flex flex-col items-center text-center space-y-4">
       <div className="icon-3d bg-primary/10 p-4 rounded-full">
         {icon}
