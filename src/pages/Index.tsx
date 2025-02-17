@@ -116,7 +116,7 @@ const TaskCard = ({
   title: string;
   description: string;
   image: string;
-}) => <div className="group feature-card-3d cursor-pointer overflow-hidden">
+}) => <div className="group feature-card-3d cursor-pointer overflow-hidden bg-sky-300 hover:bg-sky-200">
     <div className="relative h-48 mb-4 rounded-lg overflow-hidden">
       <img src={image} alt={title} className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" />
       <div className="absolute inset-0 bg-primary/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
