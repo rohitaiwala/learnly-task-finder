@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 export const Footer = () => {
   return <footer className="bg-card/80 backdrop-blur-md border-t mt-20">
-      <div className="container mx-auto px-4 py-12 bg-cyan-200 hover:bg-cyan-100 rounded-sm">
+      <div className="container mx-auto px-4 py-12 rounded-sm bg-cyan-100">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* About Section */}
           <div className="space-y-4 md:col-span-2">
