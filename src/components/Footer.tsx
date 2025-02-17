@@ -66,7 +66,7 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center mt-12 pt-8 border-t text-muted-foreground">
-          <p>© 2024 StudentConnect. All rights reserved.</p>
+          <p className="text-stone-950 font-semibold">© 2025 StudentConnect. All rights reserved.</p>
         </div>
       </div>
     </footer>;
