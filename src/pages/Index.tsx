@@ -9,7 +9,7 @@ const Index = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24 bg-rose-400 hover:bg-rose-300">
+      <section className="container mx-auto px-4 py-16 md:py-24 bg-red-200 hover:bg-red-100">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-6xl font-bold leading-tight transform transition-all duration-300 hover:scale-105">
