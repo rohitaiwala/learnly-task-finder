@@ -42,13 +42,13 @@ export const Footer = () => {
           </div>
 
           {/* Contact */}
-          <div className="space-y-4">
+          <div className="space-y-4 rounded-none px-0 py-0 mx-0 my-0">
             <h4 className="text-xl font-semibold">Contact Us</h4>
             <p className="text-muted-foreground">
               Have questions? Reach out to us:
             </p>
             <div className="flex flex-col gap-2">
-              <a href="mailto:support@studentconnect.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:support@studentconnect.com" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors px-0 py-0 my-0 mx-0">
                 <Mail className="h-4 w-4" />
                 support@studentconnect.com
               </a>
