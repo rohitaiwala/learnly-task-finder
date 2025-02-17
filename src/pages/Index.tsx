@@ -145,7 +145,7 @@ const TeamMemberCard = ({
   name: string;
   role: string;
   description: string;
-}) => <div className="feature-card-3d overflow-hidden group">
+}) => <div className="feature-card-3d overflow-hidden group bg-sky-300 hover:bg-sky-200">
     <div className="relative h-64 mb-4 rounded-lg overflow-hidden">
       <img src={image} alt={name} className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
