@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+.lovable-button, [class*="lovable"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
