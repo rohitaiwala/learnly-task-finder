@@ -53,7 +53,7 @@ const Index = () => {
       </section>
 
       {/* Task Types Section */}
-      <section className="container mx-auto px-4 py-16 bg-red-200 hover:bg-red-100">
+      <section className="container mx-auto px-4 py-16 bg-red-100">
         <h2 className="text-3xl font-bold text-center mb-12 transform transition-all duration-300 hover:scale-105">
           Available Tasks
         </h2>
