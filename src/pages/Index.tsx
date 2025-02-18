@@ -5,7 +5,7 @@ import { Book, Users, Video, Image, FileText, Target, Code, PenTool, Library, Ch
 import { Link } from "react-router-dom";
 import { FloatingBot } from "@/components/FloatingBot";
 const Index = () => {
-  return <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-lime-300 hover:bg-lime-200">
       <Navigation />
       
       {/* Hero Section */}
