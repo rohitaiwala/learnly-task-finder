@@ -94,13 +94,7 @@ const Community = () => {
           <h2 className="text-3xl font-bold mb-8 text-white text-center">Welcome to Your Community</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {selectedClass && <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
-                <h3 className="text-xl font-semibold text-white mb-4">Your Class: {selectedClass}</h3>
-                <p className="text-teal-100">
-                  You're now connected with other students in {selectedClass}. 
-                  Explore resources, connect with peers, and unlock your potential together.
-                </p>
-              </div>}
+            {selectedClass}
             
             <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
               <h3 className="text-xl font-semibold text-white mb-4">Study Groups</h3>
