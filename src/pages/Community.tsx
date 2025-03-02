@@ -1,32 +1,32 @@
-
 import { useState, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-
 const Community = () => {
   const [selectedClass, setSelectedClass] = useState<string>("");
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const nextSectionRef = useRef<HTMLDivElement>(null);
-
   const handleNext = () => {
     if (!selectedClass) {
       toast({
         title: "Please select your class",
         description: "You need to select your class before proceeding",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
 
     // Scroll down to the next section
     if (nextSectionRef.current) {
-      nextSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      nextSectionRef.current.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
   return <div className="min-h-screen bg-teal-950">
       <Navigation />
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
@@ -46,7 +46,7 @@ const Community = () => {
             </p>
           </div>
           
-          <div className="bg-teal-900/40 p-4 rounded-lg border border-teal-700">
+          <div className="p-4 rounded-lg border border-teal-700 bg-rose-950">
             <p className="text-teal-100 text-center italic">
               "Uniting passionate students by providing a platform where knowledge, opportunities, and guidance are 
               easily accessible."
@@ -80,10 +80,7 @@ const Community = () => {
           </Select>
           
           <div className="mt-8 flex justify-center">
-            <Button 
-              onClick={handleNext} 
-              className="bg-teal-600 hover:bg-teal-700 text-white font-medium px-8 py-2 rounded-full transition-all"
-            >
+            <Button onClick={handleNext} className="bg-teal-600 hover:bg-teal-700 text-white font-medium px-8 py-2 rounded-full transition-all">
               Next
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -97,15 +94,13 @@ const Community = () => {
           <h2 className="text-3xl font-bold mb-8 text-white text-center">Welcome to Your Community</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {selectedClass && (
-              <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
+            {selectedClass && <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
                 <h3 className="text-xl font-semibold text-white mb-4">Your Class: {selectedClass}</h3>
                 <p className="text-teal-100">
                   You're now connected with other students in {selectedClass}. 
                   Explore resources, connect with peers, and unlock your potential together.
                 </p>
-              </div>
-            )}
+              </div>}
             
             <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
               <h3 className="text-xl font-semibold text-white mb-4">Study Groups</h3>
