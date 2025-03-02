@@ -96,29 +96,11 @@ const Community = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {selectedClass}
             
-            <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
-              <h3 className="text-xl font-semibold text-white mb-4">Study Groups</h3>
-              <p className="text-teal-100">
-                Join study groups specific to your subjects and interests. 
-                Collaborate with peers to tackle challenging topics together.
-              </p>
-            </div>
             
-            <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
-              <h3 className="text-xl font-semibold text-white mb-4">Upcoming Events</h3>
-              <p className="text-teal-100">
-                Stay updated with workshops, webinars, and community events 
-                designed to enhance your learning experience.
-              </p>
-            </div>
             
-            <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
-              <h3 className="text-xl font-semibold text-white mb-4">Community Forum</h3>
-              <p className="text-teal-100">
-                Ask questions, share insights, and participate in discussions 
-                with students and mentors across different classes.
-              </p>
-            </div>
+            
+            
+            
           </div>
         </div>
       </div>
