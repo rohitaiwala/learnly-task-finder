@@ -12,7 +12,7 @@ const Community = () => {
         <p className="text-white text-center mb-8">Select Your Class</p>
         
         <div className="w-full max-w-4xl bg-teal-900/50 rounded-lg p-4 mb-8">
-          <img src="/lovable-uploads/4363c4f5-d1e9-4cc9-9036-b50613203edc.png" alt="Student Community" className="w-full h-auto rounded-lg" />
+          <img alt="Student Community" className="w-full h-auto rounded-lg object-cover" src="/lovable-uploads/f79c338e-29fc-423f-9926-88a87d1588ee.jpg" />
         </div>
         
         <div className="w-full max-w-4xl space-y-4 mb-8">
