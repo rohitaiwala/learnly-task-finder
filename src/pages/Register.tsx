@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -12,38 +11,29 @@ import { PersonalInfoFields } from "@/components/registration/PersonalInfoFields
 import { AcademicInfoFields } from "@/components/registration/AcademicInfoFields";
 import { PasswordFields } from "@/components/registration/PasswordFields";
 import ReCAPTCHA from "react-google-recaptcha";
-
 const formSchema = z.object({
   fullName: z.string().min(2, "Name must be at least 2 characters"),
   qualification: z.string().min(2, "Please enter your qualification"),
   role: z.enum(["student", "tutor"], {
-    required_error: "Please select a role",
+    required_error: "Please select a role"
   }),
   institutionName: z.string().min(2, "Please enter your school/college name"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Invalid phone number"),
   preferredSubject: z.string().min(2, "Please enter your preferred subject"),
   location: z.string().min(2, "Please enter your location"),
-  password: z
-    .string()
-    .min(8, "Password must be at least 8 characters")
-    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
-    .regex(/[0-9]/, "Password must contain at least one number")
-    .regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
-  confirmPassword: z.string(),
-}).refine((data) => data.password === data.confirmPassword, {
+  password: z.string().min(8, "Password must be at least 8 characters").regex(/[A-Z]/, "Password must contain at least one uppercase letter").regex(/[a-z]/, "Password must contain at least one lowercase letter").regex(/[0-9]/, "Password must contain at least one number").regex(/[^A-Za-z0-9]/, "Password must contain at least one special character"),
+  confirmPassword: z.string()
+}).refine(data => data.password === data.confirmPassword, {
   message: "Passwords don't match",
-  path: ["confirmPassword"],
+  path: ["confirmPassword"]
 });
-
 const Register = () => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(false);
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
-  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,13 +46,11 @@ const Register = () => {
       preferredSubject: "",
       location: "",
       password: "",
-      confirmPassword: "",
-    },
+      confirmPassword: ""
+    }
   });
-
   const password = form.watch("password");
   const confirmPassword = form.watch("confirmPassword");
-
   useEffect(() => {
     if (password && confirmPassword) {
       setPasswordsMatch(password === confirmPassword);
@@ -70,35 +58,31 @@ const Register = () => {
       setPasswordsMatch(false);
     }
   }, [password, confirmPassword]);
-
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     if (!captchaValue) {
       toast({
         title: "Error",
         description: "Please complete the reCAPTCHA verification.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-
     try {
       console.log("Form values:", values);
       toast({
         title: "Registration successful!",
-        description: "You can now login to your account.",
+        description: "You can now login to your account."
       });
       navigate("/login");
     } catch (error) {
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
-        variant: "destructive",
+        variant: "destructive"
       });
     }
   };
-
-  return (
-    <div className="min-h-screen bg-[#F1F0FB]">
+  return <div className="min-h-screen bg-[#F1F0FB]">
       <Navigation />
       <div className="container mx-auto px-4 py-4 md:py-8">
         <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-lg p-4 md:p-8 space-y-4 md:space-y-6">
@@ -112,27 +96,12 @@ const Register = () => {
               <div className="space-y-4">
                 <PersonalInfoFields form={form} />
                 <AcademicInfoFields form={form} />
-                <PasswordFields
-                  form={form}
-                  showPassword={showPassword}
-                  showConfirmPassword={showConfirmPassword}
-                  passwordsMatch={passwordsMatch}
-                  setShowPassword={setShowPassword}
-                  setShowConfirmPassword={setShowConfirmPassword}
-                />
+                <PasswordFields form={form} showPassword={showPassword} showConfirmPassword={showConfirmPassword} passwordsMatch={passwordsMatch} setShowPassword={setShowPassword} setShowConfirmPassword={setShowConfirmPassword} />
               </div>
 
-              <div className="flex justify-center my-4">
-                <ReCAPTCHA
-                  sitekey="YOUR_RECAPTCHA_SITE_KEY"
-                  onChange={(value) => setCaptchaValue(value)}
-                />
-              </div>
+              
 
-              <Button 
-                type="submit" 
-                className="w-full bg-[#1EAEDB] hover:bg-[#33C3F0] text-white rounded-full py-2.5 md:py-3"
-              >
+              <Button type="submit" className="w-full bg-[#1EAEDB] hover:bg-[#33C3F0] text-white rounded-full py-2.5 md:py-3">
                 Register
               </Button>
             </form>
@@ -146,8 +115,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Register;
