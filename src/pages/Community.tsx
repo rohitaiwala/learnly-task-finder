@@ -1,26 +1,18 @@
-
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChevronDown } from "lucide-react";
-
 const Community = () => {
   const [selectedClass, setSelectedClass] = useState<string>("");
-
-  return (
-    <div className="min-h-screen bg-teal-950">
+  return <div className="min-h-screen bg-teal-950">
       <Navigation />
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
-        <h1 className="text-4xl font-bold mb-4 text-white text-center">Join Our Student Community</h1>
+        <h1 className="text-4xl font-bold mb-4 text-white text-center">Join Your Student Community</h1>
         
         <p className="text-white text-center mb-8">Select Your Class</p>
         
         <div className="w-full max-w-4xl bg-teal-900/50 rounded-lg p-4 mb-8">
-          <img 
-            src="/lovable-uploads/4363c4f5-d1e9-4cc9-9036-b50613203edc.png" 
-            alt="Student Community" 
-            className="w-full h-auto rounded-lg"
-          />
+          <img src="/lovable-uploads/4363c4f5-d1e9-4cc9-9036-b50613203edc.png" alt="Student Community" className="w-full h-auto rounded-lg" />
         </div>
         
         <div className="w-full max-w-4xl space-y-4 mb-8">
@@ -65,8 +57,6 @@ const Community = () => {
           </Select>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Community;
