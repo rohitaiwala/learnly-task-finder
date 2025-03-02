@@ -1,9 +1,31 @@
+
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
+
 const Community = () => {
   const [selectedClass, setSelectedClass] = useState<string>("");
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleNext = () => {
+    if (!selectedClass) {
+      toast({
+        title: "Please select your class",
+        description: "You need to select your class before proceeding",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Navigate to the resources page (or any other desired page)
+    navigate("/resources");
+  };
+
   return <div className="min-h-screen bg-teal-950">
       <Navigation />
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
@@ -55,6 +77,16 @@ const Community = () => {
               <SelectItem value="ug-4">Undergraduate Year 4</SelectItem>
             </SelectContent>
           </Select>
+          
+          <div className="mt-8 flex justify-center">
+            <Button 
+              onClick={handleNext} 
+              className="bg-teal-600 hover:bg-teal-700 text-white font-medium px-8 py-2 rounded-full transition-all"
+            >
+              Next
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>;
