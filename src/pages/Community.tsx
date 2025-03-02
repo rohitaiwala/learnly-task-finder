@@ -1,15 +1,17 @@
+
 import { useState, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
 const Community = () => {
   const [selectedClass, setSelectedClass] = useState<string>("");
-  const {
-    toast
-  } = useToast();
+  const [showNextSection, setShowNextSection] = useState<boolean>(false);
+  const { toast } = useToast();
   const nextSectionRef = useRef<HTMLDivElement>(null);
+
   const handleNext = () => {
     if (!selectedClass) {
       toast({
@@ -20,6 +22,9 @@ const Community = () => {
       return;
     }
 
+    // Show the next section
+    setShowNextSection(true);
+
     // Scroll down to the next section
     if (nextSectionRef.current) {
       nextSectionRef.current.scrollIntoView({
@@ -27,6 +32,7 @@ const Community = () => {
       });
     }
   };
+
   return <div className="min-h-screen bg-teal-950">
       <Navigation />
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
@@ -89,21 +95,18 @@ const Community = () => {
       </div>
       
       {/* Next section (content shown after clicking Next) */}
-      <div ref={nextSectionRef} className="min-h-screen bg-teal-900 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-white text-center">Welcome to Your Community</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {selectedClass}
+      {showNextSection && (
+        <div ref={nextSectionRef} className="min-h-screen bg-teal-900 py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-8 text-white text-center">Welcome to Your Community</h2>
             
-            
-            
-            
-            
-            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {selectedClass}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>;
 };
+
 export default Community;
