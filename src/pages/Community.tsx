@@ -1,16 +1,15 @@
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
 
 const Community = () => {
   const [selectedClass, setSelectedClass] = useState<string>("");
-  const navigate = useNavigate();
   const { toast } = useToast();
+  const nextSectionRef = useRef<HTMLDivElement>(null);
 
   const handleNext = () => {
     if (!selectedClass) {
@@ -22,8 +21,10 @@ const Community = () => {
       return;
     }
 
-    // Navigate to the resources page (or any other desired page)
-    navigate("/resources");
+    // Scroll down to the next section
+    if (nextSectionRef.current) {
+      nextSectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return <div className="min-h-screen bg-teal-950">
@@ -86,6 +87,49 @@ const Community = () => {
               Next
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Next section (content shown after clicking Next) */}
+      <div ref={nextSectionRef} className="min-h-screen bg-teal-900 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-white text-center">Welcome to Your Community</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {selectedClass && (
+              <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
+                <h3 className="text-xl font-semibold text-white mb-4">Your Class: {selectedClass}</h3>
+                <p className="text-teal-100">
+                  You're now connected with other students in {selectedClass}. 
+                  Explore resources, connect with peers, and unlock your potential together.
+                </p>
+              </div>
+            )}
+            
+            <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Study Groups</h3>
+              <p className="text-teal-100">
+                Join study groups specific to your subjects and interests. 
+                Collaborate with peers to tackle challenging topics together.
+              </p>
+            </div>
+            
+            <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Upcoming Events</h3>
+              <p className="text-teal-100">
+                Stay updated with workshops, webinars, and community events 
+                designed to enhance your learning experience.
+              </p>
+            </div>
+            
+            <div className="bg-teal-800 p-6 rounded-lg border border-teal-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Community Forum</h3>
+              <p className="text-teal-100">
+                Ask questions, share insights, and participate in discussions 
+                with students and mentors across different classes.
+              </p>
+            </div>
           </div>
         </div>
       </div>
