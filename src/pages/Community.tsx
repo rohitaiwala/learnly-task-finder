@@ -39,7 +39,7 @@ const Community = () => {
         </div>
         
         <div className="w-full max-w-md">
-          <p className="text-white mb-2">Select your class</p>
+          <p className="text-white mb-2 text-center font-medium text-2xl">Select your class</p>
           <Select onValueChange={setSelectedClass} value={selectedClass}>
             <SelectTrigger className="w-full bg-teal-900 text-white border-teal-700">
               <SelectValue placeholder="Select your class" />
