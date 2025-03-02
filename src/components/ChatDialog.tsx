@@ -40,7 +40,7 @@ export const ChatDialog = ({
   return <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[425px] bg-gray-950 hover:bg-gray-800">
         <DialogHeader>
-          <DialogTitle>Chat Assistant</DialogTitle>
+          <DialogTitle className="text-zinc-50 text-center font-bold text-2xl">Chat Assistant</DialogTitle>
         </DialogHeader>
         <div className="flex flex-col h-[400px]">
           <ScrollArea className="flex-1 pr-4">
