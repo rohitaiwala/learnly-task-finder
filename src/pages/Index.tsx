@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -32,7 +33,18 @@ const Index = () => {
             </div>
           </div>
           <div className="relative flex justify-center items-center">
-            
+            <div className="w-full h-full relative overflow-hidden rounded-2xl shadow-xl feature-card-3d">
+              <img 
+                src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7" 
+                alt="AI Learning Platform" 
+                className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 text-white p-4">
+                <h3 className="text-2xl font-bold">AI-Powered Learning</h3>
+                <p className="text-sm opacity-80">Get personalized assistance with our innovative platform</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
