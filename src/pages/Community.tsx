@@ -53,7 +53,7 @@ const Community = () => {
             </p>
           </div>
           
-          <div className="bg-teal-900/40 p-4 rounded-lg border border-teal-700">
+          <div className="p-4 rounded-lg border border-teal-700 bg-pink-950">
             <p className="text-teal-100 text-center italic">
               "Building a community where passion and skills are the primary drivers of success, not the board they 
               belong to."
