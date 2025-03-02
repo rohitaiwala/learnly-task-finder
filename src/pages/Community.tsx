@@ -9,14 +9,14 @@ const Community = () => {
       <div className="container mx-auto px-4 py-8 flex flex-col items-center">
         <h1 className="text-4xl font-bold mb-4 text-white text-center">Join Your Student Community</h1>
         
-        <p className="text-white text-center mb-8">Select Your Class</p>
+        
         
         <div className="w-full max-w-4xl bg-teal-900/50 rounded-lg p-4 mb-8">
           <img alt="Student Community" className="w-full h-auto rounded-lg object-cover" src="/lovable-uploads/f79c338e-29fc-423f-9926-88a87d1588ee.jpg" />
         </div>
         
         <div className="w-full max-w-4xl space-y-4 mb-8">
-          <div className="bg-teal-900/40 p-4 rounded-lg border border-teal-700">
+          <div className="p-4 rounded-lg border border-teal-700 bg-pink-950">
             <p className="text-teal-100 text-center italic">
               "Empowering students with the knowledge and resources to unlock their true potential, no matter their 
               financial or background."
